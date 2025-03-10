@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ADRI STORE">
+    <title>ADRI STORE</title>
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Estilos CSS -->
+    <style>
+        /* Reset global */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #fff;
+            background-color: #000;
+            overflow-x: hidden;
+            position: relative;
+            padding-bottom: 100px;
+        }
+
+        /* Estilo para el fondo con estrellas en movimiento */
+        .starry-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            background: transparent;
+            animation: moveStars 120s linear infinite;
+        }
+
+        .star {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.8);
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            animation: twinkle 1s infinite alternate;
+        }
+
+        /* Movimiento de las estrellas */
+        @keyframes moveStars {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100%); }
+        }
+
+        /* Parpadeo de las estrellas */
+        @keyframes twinkle {
+            0% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+
+        /* HEADER */
+        header {
+            position: relative;
+            background: transparent;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        header h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5em;
+            color: #ff0000; /* Rojo brillante */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 24px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 30px;
+            transition: background 0.3s;
+            font-size: 1.1em;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        nav a:hover {
+            background-color: #ff0000;
+            box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.7);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background-image: url('https://www.example.com/your-space-background.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 150px 20px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            color: #ff0000;
+            text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.7);
+        }
+
+        /* CTA (Call to Action) Button */
+        .cta-btn {
+            padding: 18px 30px;
+            background-color: #ff0000;
+            color: #fff;
+            font-size: 1.4em;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: background 0.3s;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+            margin-top: 40px;
+        }
+
+        .cta-btn:hover {
+            background-color: #cc0000;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+        }
+
+        /* SECCIÓN DE PRODUCTOS */
+        .productos-section, .modelos-entregados-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 50px 20px;
+        }
+
+        .producto-card, .modelo-card {
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            width: 45%;
+            margin-bottom: 20px;
+            text-align: left;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .producto-card:hover, .modelo-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.7);
+        }
+
+        .producto-card h3, .modelo-card h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            color: #ff0000;
+        }
+
+        .producto-card p, .modelo-card p {
+            font-size: 1.1em;
+            color: #bbb;
+        }
+
+        /* Estilo para la imagen del producto */
+        .producto-img, .modelo-img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .producto-card a, .modelo-card a {
+            padding: 12px 20px;
+            background-color: #ff0000;
+            color: #fff;
+            font-size: 1.1em;
+            text-decoration: none;
+            border-radius: 30px;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .producto-card a:hover, .modelo-card a:hover {
+            background-color: #cc0000;
+        }
+
+        /* LÍNEA DIVISORIA */
+        .divider {
+            width: 100%;
+            height: 2px;
+            background-color: #ff0000;
+            margin: 50px 0;
+        }
+
+        /* TITULO DE MODELOS ENTREGADOS */
+        .modelos-entregados-title {
+            text-align: center;
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5em;
+            color: #ff0000;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
+            margin-top: 30px;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #111;
+            text-align: center;
+            padding: 20px;
+            color: #bbb;
+            position: relative;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        footer a {
+            color: #ff0000;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FONDO ESTRELLADO -->
+    <div class="starry-background"></div>
+
+    <!-- HEADER -->
+    <header>
+        <h1>Tienda Adri Store</h1>
+        <nav>
+            <a href="#home">Inicio</a>
+            <a href="#productos">Productos</a>
+            <a href="#modelos-entregados">Modelos Entregados</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h2>Bienvenido a la tienda de Adri Store</h2>
+        <a href="#productos" class="cta-btn">¡Compra ahora!</a>
+    </section>
+
+    <!-- SECCIÓN DE PRODUCTOS -->
+    <section id="productos" class="productos-section">
+        <div class="producto-card">
+            <img src="images/producto1.jpg" alt="Producto 1" class="producto-img">
+            <h3>Panel Tag</h3>
+            <p>😱 Añade al grupo fácil y rápido a tus amigos con nuestro sistema de tag 100% funcional 😱</p>
+            <a href="https://discord.gg/sd6XYY4cct" target="_blank">Comprar</a>
+        </div>
+        <div class="producto-card">
+            <img src="images/producto2.jpg" alt="Producto 2" class="producto-img">
+            <h3>Estacionamientos</h3>
+            <p>😱 Has que tu servidor brille con nuestro Parking sin Lág, ni bugs para usar ¡ya! 😱</p>
+            <a href="https://discord.gg/sd6XYY4cct" target="_blank">Comprar</a>
+        </div>
+        <div class="producto-card">
+            <img src="images/producto3.jpg" alt="Producto 3" class="producto-img">
+            <h3>Panel De Streamers</h3>
+            <p>😱 Has que tus streamers tengan beneficios por su buen trabajo en tu servidor, con nuestro sistema de Creadores 😱</p>
+            <a href="https://discord.gg/sd6XYY4cct" target="_blank">Comprar</a>
+        </div>
+    </section>
+
+    <!-- LÍNEA DIVISORIA ENTRE PRODUCTOS Y MODELOS ENTREGADOS -->
+    <div class="divider"></div>
+
+    <!-- TITULO DE MODELOS ENTREGADOS -->
+    <h2 class="modelos-entregados-title">Modelos Entregados</h2>
+
+    <!-- SECCIÓN DE MODELOS ENTREGADOS -->
+    <section id="modelos-entregados" class="modelos-entregados-section">
+        <div class="modelo-card">
+            <img src="modelentregas/modelo1.jpg" alt="Modelo 1" class="modelo-img">
+            <h3>Musicologo Entregado</h3>
+            <p>🚀 Entregado con éxito. Este modelo NO esta a la venta, si deseas adquirir un producto personalizado unete a nuestro Discord 🚀</p>
+        </div>
+        <div class="modelo-card">
+            <img src="modelentregas/modelo2.jpg" alt="Modelo 2" class="modelo-img">
+            <h3>Letrero Entregado</h3>
+            <p>🚀 Entregado con éxito. Este modelo NO esta a la venta, si deseas adquirir un producto personalizado unete a nuestro Discord 🚀</p>
+        </div>
+        <div class="modelo-card">
+            <img src="modelentregas/modelo3.jpg" alt="Modelo 3" class="modelo-img">
+            <h3>Letrero Entregado</h3>
+            <p>🚀 Entregado con éxito. Este modelo NO esta a la venta, si deseas adquirir un producto personalizado unete a nuestro Discord 🚀</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 ADRI STORE | Todos los derechos reservados. <a href="#">| GO BACK |</a></p>
+    </footer>
+    
+</body>
+</html>
